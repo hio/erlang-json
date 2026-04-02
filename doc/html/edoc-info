@@ -1,3 +1,3 @@
-{application,json}.
-{packages,[]}.
-{modules,[json]}.
+%% encoding: UTF-8
+{application,enif_json}.
+{modules,[enif_json]}.
