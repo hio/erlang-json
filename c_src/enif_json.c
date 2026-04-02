@@ -30,4 +30,4 @@ static ErlNifFunc nif_funcs[] =
     {"decode_nif", 3, decode}
 };
 
-ERL_NIF_INIT(json, nif_funcs, &on_load, &on_reload, &on_upgrade, NULL);
+ERL_NIF_INIT(enif_json, nif_funcs, &on_load, &on_reload, &on_upgrade, NULL);

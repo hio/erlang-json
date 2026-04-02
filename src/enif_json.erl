@@ -5,7 +5,7 @@
 %% @doc This is a json encode/decode library for erlang.
 %% @copyright 2011 YAMASHINA Hio,
 %%            2011 Paul J. Davis
--module(json).
+-module(enif_json).
 -export([encode/1, decode/1, decode/2]).
 -export_type([decode_error/0]).
 -export_type([decode_options/0]).
@@ -108,7 +108,7 @@ nif_dir_2() ->
 
 init() ->
     PrivDir = nif_dir(),
-    erlang:load_nif(filename:join(PrivDir, "json"), 0).
+    erlang:load_nif(filename:join(PrivDir, "enif_json"), 0).
 
 %% @doc decode json text into erlang term.
 %% @equiv decode(JsonText, [])

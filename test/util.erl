@@ -19,15 +19,15 @@ error_mesg(J) ->
     lists:flatten(io_lib:format("Decoding ~p returns an error.", [J])).
 
 check_good({J, E}) ->
-    etap:is(json:decode(J), {ok, E}, ok_dec(J, E)),
-    etap:is(json:encode(E), {ok, J}, ok_enc(E, J));
+    etap:is(enif_json:decode(J), {ok, E}, ok_dec(J, E)),
+    etap:is(enif_json:encode(E), {ok, J}, ok_enc(E, J));
 check_good({J, E, J2}) ->
-    etap:is(json:decode(J), {ok, E}, ok_dec(J, E)),
-    etap:is(json:encode(E), {ok, J2}, ok_enc(E, J2)).
+    etap:is(enif_json:decode(J), {ok, E}, ok_dec(J, E)),
+    etap:is(enif_json:encode(E), {ok, J2}, ok_enc(E, J2)).
 
 check_error(J) ->
     etap:fun_is(
         fun({error, _}) -> true; (_) -> false end,
-        json:decode(J),
+        enif_json:decode(J),
         error_mesg(J)
     ).

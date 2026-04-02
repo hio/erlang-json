@@ -1,11 +1,11 @@
 
-** this is the overview.doc file for the application 'json' **
+** this is the overview.doc file for the application 'enif_json' **
 
 @author YAMASHINA Hio <hio@hio.jp>
 @author Paul J. Davis <paul.joseph.davis@gmail.com>
 @copyright 2011 YAMASHINA Hio,
            2011 Paul J. Davis
 @version 0.0.1
-@title Welcome to the `json' application!
+@title Welcome to the `enif_json' application!
 @doc This is a json encode/decode library for erlang.
 
