@@ -1,9 +1,14 @@
 .eunit
+.rebar
 
 # auto-generated files.
+*.d
+compile_commands.json
 deps
 
 # temporary files.
+*.log
+*.plt
 *.o
 *.so
 *.beam
