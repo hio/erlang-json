@@ -1,84 +1,84 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Module json</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module enif_json</title>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
 </head>
 <body bgcolor="white">
 <div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
 <hr>
 
-<h1>Module json</h1>
+<h1>Module enif_json</h1>
 <ul class="index"><li><a href="#description">Description</a></li><li><a href="#types">Data Types</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>This is a json encode/decode library for erlang.
-<p>Copyright © 2011 YAMASHINA Hio,
+<p>Copyright Â© 2011 YAMASHINA Hio,
              2011 Paul J. Davis</p>
 
-<p><b>Authors:</b> YAMASHINA Hio (<a href="mailto:hio@hio.jp"><tt>hio@hio.jp</tt></a>), Paul J. Davis (<a href="mailto:paul.joseph.davis@gmail.com"><tt>paul.joseph.davis@gmail.com</tt></a>).</p>
+<p><b>Authors:</b> YAMASHINA Hio (<a href="mailto:hio@hio.jp"><code>hio@hio.jp</code></a>), Paul J. Davis (<a href="mailto:paul.joseph.davis@gmail.com"><code>paul.joseph.davis@gmail.com</code></a>).</p>
 
 <h2><a name="description">Description</a></h2>This is a json encode/decode library for erlang.
 <h2><a name="types">Data Types</a></h2>
 
 <h3 class="typedecl"><a name="type-binary_text">binary_text()</a></h3>
-<p><tt>binary_text() = <a href="unicode.html#type-unicode_binary">unicode:unicode_binary()</a></tt></p>
+<p><code>binary_text() = <a href="http://www.erlang.org/edoc/doc/stdlib/doc/unicode.html#type-unicode_binary" docgen-rel="seetype" docgen-href="stdlib:unicode#unicode_binary/0">unicode:unicode_binary()</a></code></p>
 <p>  Json encoded text represented in erlang binary term.</p>
 
 <h3 class="typedecl"><a name="type-decode_error">decode_error()</a></h3>
-<p><tt>decode_error() = term()</tt></p>
+<p><code>decode_error() = term()</code></p>
 <p>  reason for decode() error.</p>
 
 <h3 class="typedecl"><a name="type-decode_option">decode_option()</a></h3>
-<p><tt>decode_option() = allow_comments | {allow_comments, boolean()} | {key_decode, existent_atom | binary | [existent_atom | binary | ignore]}</tt></p>
+<p><code>decode_option() = allow_comments | {allow_comments, boolean()} | {key_decode, existent_atom | binary | [existent_atom | binary | ignore]}</code></p>
 <p>  option for decode().
   see decode/2.</p>
 
 <h3 class="typedecl"><a name="type-decode_options">decode_options()</a></h3>
-<p><tt>decode_options() = [<a href="#type-decode_option">decode_option()</a>]</tt></p>
+<p><code>decode_options() = [<a href="#type-decode_option" docgen-rel="seetype" docgen-href="#decode_option/0">decode_option()</a>]</code></p>
 <p>  options for decode().
   see decode/2.</p>
 
 <h3 class="typedecl"><a name="type-encode_error">encode_error()</a></h3>
-<p><tt>encode_error() = term()</tt></p>
+<p><code>encode_error() = term()</code></p>
 <p>  reason for encode() error.</p>
 
 <h3 class="typedecl"><a name="type-json_array">json_array()</a></h3>
-<p><tt>json_array() = <a href="#type-json_array_t">json_array_t</a>(<a href="#type-value">value()</a>)</tt></p>
+<p><code>json_array() = <a href="#type-json_array_t" docgen-rel="seetype" docgen-href="#json_array_t/0">json_array_t</a>(<a href="#type-value" docgen-rel="seetype" docgen-href="#value/0">value()</a>)</code></p>
 <p>  json array value is represented in erlang array term.</p>
 
 <h3 class="typedecl"><a name="type-json_array_t">json_array_t()</a></h3>
-<p><tt>json_array_t(T) = [T]</tt></p>
+<p><code>json_array_t(T) = [T]</code></p>
 <p>  json array value is represented in erlang array term.</p>
 
 <h3 class="typedecl"><a name="type-json_number">json_number()</a></h3>
-<p><tt>json_number() = integer() | float()</tt></p>
+<p><code>json_number() = integer() | float()</code></p>
 <p>  json number value is represented erlang integer or float term.</p>
 
 <h3 class="typedecl"><a name="type-json_object">json_object()</a></h3>
-<p><tt>json_object() = <a href="#type-json_object_t">json_object_t</a>([{<a href="#type-key">key()</a>, <a href="#type-value">value()</a>}])</tt></p>
+<p><code>json_object() = <a href="#type-json_object_t" docgen-rel="seetype" docgen-href="#json_object_t/0">json_object_t</a>([{<a href="#type-key" docgen-rel="seetype" docgen-href="#key/0">key()</a>, <a href="#type-value" docgen-rel="seetype" docgen-href="#value/0">value()</a>}])</code></p>
 <p>  json object.</p>
 
 <h3 class="typedecl"><a name="type-json_object_t">json_object_t()</a></h3>
-<p><tt>json_object_t(Pairs) = {Pairs}</tt></p>
+<p><code>json_object_t(Pairs) = {Pairs}</code></p>
 <p>  json object value is represented in erlang tuple which contains single proplist style value.</p>
 
 <h3 class="typedecl"><a name="type-json_primary">json_primary()</a></h3>
-<p><tt>json_primary() = <a href="#type-json_string">json_string()</a> | <a href="#type-json_number">json_number()</a> | boolean() | null</tt></p>
+<p><code>json_primary() = <a href="#type-json_string" docgen-rel="seetype" docgen-href="#json_string/0">json_string()</a> | <a href="#type-json_number" docgen-rel="seetype" docgen-href="#json_number/0">json_number()</a> | boolean() | null</code></p>
 <p>  non-structured values.</p>
 
 <h3 class="typedecl"><a name="type-json_string">json_string()</a></h3>
-<p><tt>json_string() = <a href="unicode.html#type-unicode_binary">unicode:unicode_binary()</a></tt></p>
+<p><code>json_string() = <a href="http://www.erlang.org/edoc/doc/stdlib/doc/unicode.html#type-unicode_binary" docgen-rel="seetype" docgen-href="stdlib:unicode#unicode_binary/0">unicode:unicode_binary()</a></code></p>
 <p>  json string value is represented erlang binary term.</p>
 
 <h3 class="typedecl"><a name="type-key">key()</a></h3>
-<p><tt>key() = <a href="#type-json_string">json_string()</a> | atom()</tt></p>
+<p><code>key() = <a href="#type-json_string" docgen-rel="seetype" docgen-href="#json_string/0">json_string()</a> | atom()</code></p>
 <p>  key of object value. key() is mostly binary(), but it may be in atom() depended on key_decode option.</p>
 
 <h3 class="typedecl"><a name="type-text">text()</a></h3>
-<p><tt>text() = <a href="unicode.html#type-chardata">unicode:chardata()</a></tt></p>
+<p><code>text() = <a href="http://www.erlang.org/edoc/doc/stdlib/doc/unicode.html#type-chardata" docgen-rel="seetype" docgen-href="stdlib:unicode#chardata/0">unicode:chardata()</a></code></p>
 <p>  Json encoded text represented in erlang chardata term.</p>
 
 <h3 class="typedecl"><a name="type-value">value()</a></h3>
-<p><tt>value() = <a href="#type-json_primary">json_primary()</a> | <a href="#type-json_object_t">json_object_t</a>([{<a href="#type-key">key()</a>, <a href="#type-value">value()</a>}]) | <a href="#type-json_array_t">json_array_t</a>(<a href="#type-value">value()</a>)</tt></p>
+<p><code>value() = <a href="#type-json_primary" docgen-rel="seetype" docgen-href="#json_primary/0">json_primary()</a> | <a href="#type-json_object_t" docgen-rel="seetype" docgen-href="#json_object_t/0">json_object_t</a>([{<a href="#type-key" docgen-rel="seetype" docgen-href="#key/0">key()</a>, <a href="#type-value" docgen-rel="seetype" docgen-href="#value/0">value()</a>}]) | <a href="#type-json_array_t" docgen-rel="seetype" docgen-href="#json_array_t/0">json_array_t</a>(<a href="#type-value" docgen-rel="seetype" docgen-href="#value/0">value()</a>)</code></p>
 <p>  any type of json value.</p>
 
 <h2><a name="index">Function Index</a></h2>
@@ -91,13 +91,15 @@
 
 <h3 class="function"><a name="decode-1">decode/1</a></h3>
 <div class="spec">
-<p><tt>decode(JsonText::<a href="#type-text">text()</a>) -&gt; {ok, <a href="#type-value">value()</a>} | {error, <a href="#type-decode_error">decode_error()</a>}</tt><br></p>
-</div><p>Equivalent to <a href="#decode-2"><tt>decode(JsonText, [])</tt></a>.</p>
+<p><code>decode(JsonText::<a href="#type-text" docgen-rel="seetype" docgen-href="#text/0">text()</a>) -&gt; {ok, <a href="#type-value" docgen-rel="seetype" docgen-href="#value/0">value()</a>} | {error, <a href="#type-decode_error" docgen-rel="seetype" docgen-href="#decode_error/0">decode_error()</a>}</code><br></p>
+<p> </p>
+</div><p>Equivalent to <a href="#decode-2" docgen-rel="seemfa" docgen-href="#decode/2"><code>decode(JsonText, [])</code></a>.</p>
 <p>decode json text into erlang term.</p>
 
 <h3 class="function"><a name="decode-2">decode/2</a></h3>
 <div class="spec">
-<p><tt>decode(JsonText::<a href="#type-text">text()</a>, Options::<a href="#type-decode_options">decode_options()</a>) -&gt; {ok, <a href="#type-value">value()</a>} | {error, <a href="#type-decode_error">decode_error()</a>}</tt><br></p>
+<p><code>decode(JsonText::<a href="#type-text" docgen-rel="seetype" docgen-href="#text/0">text()</a>, Options::<a href="#type-decode_options" docgen-rel="seetype" docgen-href="#decode_options/0">decode_options()</a>) -&gt; {ok, <a href="#type-value" docgen-rel="seetype" docgen-href="#value/0">value()</a>} | {error, <a href="#type-decode_error" docgen-rel="seetype" docgen-href="#decode_error/0">decode_error()</a>}</code><br></p>
+<p> </p>
 </div><p><p>decode json text into erlang term.</p>
  
   <p>Followins options are acceptable::</p>
@@ -120,11 +122,12 @@
 
 <h3 class="function"><a name="encode-1">encode/1</a></h3>
 <div class="spec">
-<p><tt>encode(JsonTerm::<a href="#type-value">value()</a>) -&gt; {ok, <a href="#type-binary_text">binary_text()</a>} | {error, <a href="#type-encode_error">encode_error()</a>}</tt><br></p>
+<p><code>encode(JsonTerm::<a href="#type-value" docgen-rel="seetype" docgen-href="#value/0">value()</a>) -&gt; {ok, <a href="#type-binary_text" docgen-rel="seetype" docgen-href="#binary_text/0">binary_text()</a>} | {error, <a href="#type-encode_error" docgen-rel="seetype" docgen-href="#encode_error/0">encode_error()</a>}</code><br></p>
+<p> </p>
 </div><p>encode erlang term into json text.</p>
 <hr>
 
 <div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
-<p><i>Generated by EDoc, Mar 27 2012, 00:46:37.</i></p>
+<p><i>Generated by EDoc</i></p>
 </body>
 </html>

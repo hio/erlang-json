@@ -583,7 +583,10 @@ test_server(State) ->
 %% @private
 %% @doc Process the result of a test and send it to the etap_server process.
 mk_tap(Result, Desc) ->
-    IsSkip = lib:sendw(etap_server, is_skip),
+    etap_server ! {self(), is_skip},
+    IsSkip = receive
+                 Reply -> Reply
+             end,
     case [IsSkip, Result] of
         [_, true] ->
             etap_server ! {self(), pass, Desc},

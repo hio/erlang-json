@@ -3,7 +3,7 @@
 
 top_builddir := `pwd`
 
-PACKAGE_VERNAME=json-0.0.1
+PACKAGE_VERNAME=enif_json-0.0.3
 
 ERL=erl
 DIALYZER=dialyzer
@@ -28,11 +28,11 @@ check: test/etap.beam test/util.beam
 	  ./rebar eunit
 	ERL_FLAGS="-pa ./ebin" JSON_NIF_DIR=$(top_builddir)/priv \
 	  prove test/*.t
-	$(DIALYZER) $(DIALYZER_FLAGS) --build_plt --output_plt json.plt ebin/json.beam >json.log 2>&1 || { e=$$?; cat json.log; exit $$e; }
+	$(DIALYZER) $(DIALYZER_FLAGS) --build_plt --output_plt enif_json.plt ebin/enif_json.beam >enif_json.log 2>&1 || { e=$$?; cat enif_json.log; exit $$e; }
 
 clean:
 	./rebar clean
-	rm -f test/*.beam json.plt json.log
+	rm -f test/*.beam enif_json.plt enif_json.log
 
 doc:
 	./rebar doc

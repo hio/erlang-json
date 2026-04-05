@@ -13,7 +13,7 @@ main([]) ->
     etap:end_tests().
 
 test({Name, Json, Erl}) ->
-    etap:is(json:decode(Json), Erl, Name).
+    etap:is(enif_json:decode(Json), Erl, Name).
 
 read_cases() ->
     CasesPath = filename:join(["test", "cases", "*.json"]),
