@@ -2,7 +2,7 @@
 % See the LICENSE file for more information.
 {application, enif_json, [
     {description, "JSON Nifs"},
-    {vsn, "0.0.3"},
+    {vsn, "0.0.4"},
     {modules, []},
     {registered, []},
     {applications, [kernel, stdlib]},

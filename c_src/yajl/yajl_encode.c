@@ -154,7 +154,7 @@ void yajl_string_decode(yajl_buf buf, const unsigned char * str,
                     unsigned int codepoint = 0;
                     hexToDigit(&codepoint, str + ++end);
                     end+=3;
-                    /* check if this is a surrogate */
+                    /* check if this is a high surrogate */
                     if ((codepoint & 0xFC00) == 0xD800) {
                         end++;
                         if (str[end] == '\\' && str[end + 1] == 'u') {
@@ -166,10 +166,16 @@ void yajl_string_decode(yajl_buf buf, const unsigned char * str,
                                  (surrogate & 0x3FF));
                             end += 5;
                         } else {
+			    end--;
                             unescaped = "?";
                             break;
                         }
                     }
+		    /* or it's a low surrogate, which is always invalid */
+		    else if ((codepoint & 0xFC00) == 0xDC00) {
+			unescaped = "?";
+			break;
+		    }
                     
                     Utf32toUtf8(codepoint, utf8Buf);
                     unescaped = utf8Buf;
